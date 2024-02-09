@@ -9,7 +9,7 @@ class ContactList extends Component {
     this.props.remove(element);
   };
   render() {
-    const { contacts, remove } = this.props;
+    const { contacts } = this.props;
     return (
       <ul className={style.list}>
         {contacts.map(element => {
