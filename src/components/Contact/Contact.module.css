@@ -9,10 +9,14 @@
   text-align: center;
   color: rgb(255, 225, 147);
   font-weight: 700;
+  padding-bottom: 5px;
+  border-bottom: 1px solid white;
 }
 
 .bottom {
   display: flex;
+  flex-direction: column;
+  padding: 5px;
   justify-content: space-around;
   color: white;
 }
@@ -20,4 +24,9 @@
 .contact:hover {
   background: rgba(255, 255, 255, 0.3);
   border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.data {
+  display: flex;
+  justify-content: space-between;
 }

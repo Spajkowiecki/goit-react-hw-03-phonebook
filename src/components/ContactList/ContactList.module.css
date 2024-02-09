@@ -7,5 +7,5 @@
   gap: 5px;
   scrollbar-width: 10px;
 
-  overflow-y: scroll;
+  overflow-y: auto;
 }

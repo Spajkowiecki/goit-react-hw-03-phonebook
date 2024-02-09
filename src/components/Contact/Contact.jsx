@@ -10,8 +10,14 @@ class Contact extends Component {
           <p>{contact.name}</p>
         </div>
         <div className={style.bottom}>
-          <span>{contact.phone}</span>
-          <span>{contact.email}</span>
+          <p className={style.data}>
+            <span>Phone: </span>
+            <span>{contact.phone}</span>
+          </p>
+          <p className={style.data}>
+            <span>Email: </span>
+            <span>{contact.email}</span>
+          </p>
         </div>
       </div>
     );
