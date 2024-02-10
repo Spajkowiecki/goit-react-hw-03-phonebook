@@ -5,6 +5,9 @@ import style from './ContactList.module.css';
 import Contact from '../Contact/Contact';
 
 class ContactList extends Component {
+  componentDidMount() {
+    console.log('1');
+  }
   handleRemove = element => {
     this.props.remove(element);
   };

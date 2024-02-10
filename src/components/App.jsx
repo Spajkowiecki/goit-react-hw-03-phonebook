@@ -14,6 +14,9 @@ class App extends Component {
     filter: '',
   };
 
+  componentDidMount() {
+    console.log('2');
+  }
   /**
    *  after componentMount check if in localStorage is something saved
    * YES: load data,
