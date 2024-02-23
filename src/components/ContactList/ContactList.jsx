@@ -5,9 +5,6 @@ import style from './ContactList.module.css';
 import Contact from '../Contact/Contact';
 
 class ContactList extends Component {
-  componentDidMount() {
-    console.log('1');
-  }
   handleRemove = element => {
     this.props.remove(element);
   };
@@ -17,7 +14,7 @@ class ContactList extends Component {
       <ul className={style.list}>
         {contacts.map(element => {
           return (
-            <li key={nanoid()}>
+            <li key={element.id}>
               <Contact contact={element} />
               <button onClick={() => this.handleRemove(element)}>remove</button>
             </li>

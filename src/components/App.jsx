@@ -14,16 +14,42 @@ class App extends Component {
     filter: '',
   };
 
-  componentDidMount() {
-    console.log('2');
-  }
   /**
    *  after componentMount check if in localStorage is something saved
    * YES: load data,
    * NO: user must create his own data
    */
+  componentDidMount() {
+    console.log('checking for contacts in local storage');
+    const tempArray = JSON.parse(localStorage.getItem('contacts'));
+    if (tempArray.length === 0) {
+      console.log('No contacts in local storage');
+    } else {
+      this.setState({ contacts: tempArray });
+    }
+  }
+
+  componentDidUpdate() {
+    const { contacts } = this.state;
+    localStorage.setItem('contacts', JSON.stringify(contacts));
+  }
 
   addContact = contact => {
+    const { contacts } = this.state;
+
+    const contactExist = contacts.filter(myContacts => {
+      return (
+        myContacts.name.toLowerCase().includes(contact.name.toLowerCase()) ||
+        myContacts.phone.toLowerCase().includes(contact.phone.toLowerCase()) ||
+        myContacts.email.toLowerCase().includes(contact.email.toLowerCase())
+      );
+    });
+
+    if (contactExist.length > 0) {
+      return alert('Contact already exist!');
+    }
+
+    contact.id = contacts.length;
     this.setState(prevState => {
       return { contacts: [...prevState.contacts, contact] };
     });
@@ -32,6 +58,7 @@ class App extends Component {
   removeContact = contact => {
     const { contacts } = this.state;
     const { id } = contact;
+    console.log('removing contact by id:', id);
     this.setState({
       contacts: contacts.filter(element => element.id !== id),
     });
@@ -42,7 +69,7 @@ class App extends Component {
   };
 
   render() {
-    const { contacts } = this.state;
+    const { contacts, filter } = this.state;
     return (
       <div className={style.App}>
         <h2 className={style.title}>PHONEBOOK</h2>
@@ -52,7 +79,16 @@ class App extends Component {
           </Section>
           <Section name="Contacts">
             <Filter filter={this.handleFiltering} />
-            <ContactList contacts={contacts} remove={this.removeContact} />
+            <ContactList
+              contacts={contacts.filter(contact => {
+                return (
+                  contact.name.toLowerCase().includes(filter.toLowerCase()) ||
+                  contact.phone.toLowerCase().includes(filter.toLowerCase()) ||
+                  contact.email.toLowerCase().includes(filter.toLowerCase())
+                );
+              })}
+              remove={value => this.removeContact(value)}
+            />
           </Section>
         </div>
       </div>
