@@ -99,8 +99,8 @@ class App extends Component {
 
 App.propTypes = {
   contacts: PropTypes.arrayOf(PropTypes.object),
-  name: PropTypes.string.isRequired,
-  number: PropTypes.number.isRequired,
+  name: PropTypes.string,
+  number: PropTypes.number,
   filter: PropTypes.string,
 };
 

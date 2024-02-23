@@ -22,7 +22,7 @@ class Filter extends Component {
 }
 
 Filter.propTypes = {
-  value: PropTypes.string.isRequired,
+  value: PropTypes.string,
 };
 
 export default Filter;
