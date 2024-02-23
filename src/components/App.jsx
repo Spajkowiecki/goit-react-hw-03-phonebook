@@ -23,13 +23,14 @@ class App extends Component {
   componentDidMount() {
     console.log('checking for contacts in local storage');
     const tempArray = JSON.parse(localStorage.getItem('contacts'));
-    if (tempArray.length === 0) {
+    if (tempArray == null) {
       console.log('No contacts in local storage');
-      this.setState({ contacts: tempArray });
-    } else {
-      this.setState({ contacts: tempArray });
+      return;
     }
+    this.setState({ contacts: tempArray });
   }
+
+  componentDidCatch;
 
   componentDidUpdate() {
     const { contacts } = this.state;
