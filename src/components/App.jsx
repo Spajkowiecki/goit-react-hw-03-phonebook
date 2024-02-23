@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import PropTypes from 'prop-types';
 import Section from './Section/Section';
 import Filter from './Filter/Filter';
 import ContactList from './ContactList/ContactList';
@@ -95,5 +96,12 @@ class App extends Component {
     );
   }
 }
+
+App.propTypes = {
+  contacts: PropTypes.arrayOf(PropTypes.object),
+  name: PropTypes.string.isRequired,
+  number: PropTypes.number.isRequired,
+  filter: PropTypes.string,
+};
 
 export default App;

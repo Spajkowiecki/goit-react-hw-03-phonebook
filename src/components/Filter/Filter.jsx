@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import style from './Filter.module.css';
+import PropTypes from 'prop-types';
 
 class Filter extends Component {
   handleChange = event => {
@@ -19,5 +20,9 @@ class Filter extends Component {
     );
   }
 }
+
+Filter.propTypes = {
+  value: PropTypes.string.isRequired,
+};
 
 export default Filter;

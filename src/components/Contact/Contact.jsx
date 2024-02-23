@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import PropTypes from 'prop-types';
 import style from './Contact.module.css';
 
 class Contact extends Component {
@@ -23,5 +24,9 @@ class Contact extends Component {
     );
   }
 }
+
+Contact.propTypes = {
+  contact: PropTypes.object.isRequired,
+};
 
 export default Contact;

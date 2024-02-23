@@ -1,9 +1,7 @@
 import { Component } from 'react';
 import style from './ContactForm.module.css';
+import PropTypes from 'prop-types';
 class ContactForm extends Component {
-  state = {
-    contact: {},
-  };
   handleSubmit = event => {
     event.preventDefault();
     //getting data from fields

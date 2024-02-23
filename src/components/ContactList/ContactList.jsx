@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { nanoid } from 'nanoid';
+import PropTypes from 'prop-types';
 import style from './ContactList.module.css';
 
 import Contact from '../Contact/Contact';
@@ -24,5 +25,9 @@ class ContactList extends Component {
     );
   }
 }
+
+ContactList.propTypes = {
+  contacts: PropTypes.arrayOf(PropTypes.object),
+};
 
 export default ContactList;
